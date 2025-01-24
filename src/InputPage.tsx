@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChoiceType } from "./types";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
-import MyChoiceComponent from "./components/ui/myChoiceComponent";
+import MyChoiceComponent from "./components/ui/MyChoiceComponent";
 const InputPage = ({
   setIsStart,
   choices,
