@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChoiceType, ResultType } from "./types";
 import Graph from "./GraphClass/Graph";
 import ResultPage from "./ResultPage";
+import MyChoiceComparingComponent from "./components/ui/MyChoiceComparingComponent";
 
 const GamePage = ({ choices }: { choices: ChoiceType[] }) => {
   const [choiceA, setChoiceA] = useState("");
@@ -19,10 +20,12 @@ const GamePage = ({ choices }: { choices: ChoiceType[] }) => {
   }, []);
 
   const handleChoiceA = () => {
+    console.log("AAA");
     graphObject.current.gameContinue(choiceA, choiceB);
   };
 
   const handleChoiceB = () => {
+    console.log("BBB");
     graphObject.current.gameContinue(choiceB, choiceA);
   };
 
@@ -39,22 +42,22 @@ const GamePage = ({ choices }: { choices: ChoiceType[] }) => {
       {isLoading ? (
         <></>
       ) : (
-        <div className="bg-red-950 max-w-sm m-auto min-h-screen">
+        <div className="bg-gradient-to-b from-white via-purple-200 to-red-200 min-w-min max-w-sm m-auto min-h-screen flex flex-col gap-2">
           {isContinue ? (
             <>
-              {" "}
-              {choices.map((choice, index) => (
-                <h1 key={index}>{choice.choiceName}</h1>
-              ))}
               <hr></hr>
-              <div onClick={handleChoiceA} className="choiceA cursor-pointer">
-                <p key={"choiceA"}>{choiceA}</p>
-                <p>URL : {getURLfromName(choiceA)}</p>
-              </div>
-              <div onClick={handleChoiceB} className="choiceB cursor-pointer">
-                <p key={"choiceB"}>{choiceB}</p>
-                <p>URL : {getURLfromName(choiceB)}</p>
-              </div>
+              <MyChoiceComparingComponent
+                choice={choiceA}
+                key="choiceA"
+                onClick={handleChoiceA}
+                url={getURLfromName(choiceA)}
+              />
+              <MyChoiceComparingComponent
+                choice={choiceB}
+                key="choiceB"
+                onClick={handleChoiceB}
+                url={getURLfromName(choiceB)}
+              />
             </>
           ) : (
             <ResultPage result={result} />

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { ChoiceType } from "./types";
+import { Button } from "./components/ui/button";
+import { Input } from "./components/ui/input";
+import MyChoiceComponent from "./components/ui/myChoiceComponent";
 const InputPage = ({
   setIsStart,
   choices,
@@ -38,40 +41,39 @@ const InputPage = ({
   };
   return (
     <>
-      <div className="bg-red-950 max-w-sm m-auto min-h-screen">
-        <button onClick={handleStartGame}>START</button>
+      <div className="bg-gradient-to-b from-white via-purple-200 to-red-200 min-w-min max-w-sm m-auto min-h-screen flex flex-col gap-2">
+        <Button
+          className="w-full bg-yellow-300 text-black"
+          onClick={handleStartGame}
+        >
+          START
+        </Button>
         <form
           onSubmit={(e) => {
             handleSubmit(e);
           }}
         >
-          <input
-            value={userInput}
-            onChange={(e) => {
-              handleUserInput(e);
-            }}
-            className="bg-amber-100 text-black"
-            type="text"
-            placeholder="input your choice"
-          ></input>
-          <button className="bg-green-400 cursor-pointer" type="submit">
-            Add
-          </button>
+          <div className="flex">
+            <Input
+              value={userInput}
+              onChange={(e) => {
+                handleUserInput(e);
+              }}
+              placeholder="input your choice"
+            ></Input>
+            <Button className="bg-green-500" type="submit">
+              Add
+            </Button>
+          </div>
         </form>
-
-        <ul>
+        <ul key="choiceList" className="flex flex-col gap-4">
           {choices.map((choice, i: number) => (
-            <li key={i}>
-              {choice.choiceName}
-              <button
-                onClick={() => {
-                  handleDelete(i);
-                }}
-                className="bg-red-600 cursor-pointer"
-              >
-                Remove
-              </button>
-            </li>
+            <MyChoiceComponent
+              choice={choice.choiceName}
+              key={i}
+              handleDelete={handleDelete}
+              i={i}
+            />
           ))}{" "}
         </ul>
       </div>
