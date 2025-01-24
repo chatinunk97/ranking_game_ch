@@ -1,6 +1,10 @@
-import { Button } from "./button";
+import { ChoiceComparePropsType } from "@/types";
 import { Card, CardDescription, CardHeader, CardTitle } from "./card";
-const MyChoiceComparingComponent = ({ choice, onClick, url }) => {
+const MyChoiceComparingComponent = ({
+  choice,
+  onClick,
+  url,
+}: ChoiceComparePropsType) => {
   return (
     <div className="cursor-pointer" onClick={onClick}>
       <Card>

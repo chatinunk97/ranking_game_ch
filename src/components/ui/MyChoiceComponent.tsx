@@ -1,6 +1,7 @@
+import { ChoicePropsType } from "@/types";
 import { Button } from "./button";
 import { Card, CardDescription, CardHeader, CardTitle } from "./card";
-const MyChoiceComponent = ({ choice, i, handleDelete }) => {
+const MyChoiceComponent = ({ choice, i, handleDelete }: ChoicePropsType) => {
   return (
     <li className="flex items-cente">
       <div className="flex-1">
