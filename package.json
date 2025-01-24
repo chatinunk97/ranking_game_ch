@@ -1,6 +1,7 @@
 {
   "name": "ranking-game",
   "private": true,
+  "homepage": "https://chatinunk97.github.io/ranking_game_ch",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
