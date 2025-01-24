@@ -1,29 +1,29 @@
 import { useEffect, useRef, useState } from "react";
-import { ChoiceType } from "./types";
+import { ChoiceType, ResultType } from "./types";
 import Graph from "./GraphClass/Graph";
+import ResultPage from "./ResultPage";
 
 const GamePage = ({ choices }: { choices: ChoiceType[] }) => {
   const [choiceA, setChoiceA] = useState("");
   const [choiceB, setChoiceB] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isContinue, setIsContinue] = useState(true);
+  const [result, setResult] = useState<ResultType | []>([]);
   const graphObject = useRef(
-    new Graph(setChoiceA, setChoiceB, isContinue, setIsContinue)
-  ).current;
+    new Graph(setChoiceA, setChoiceB, isContinue, setIsContinue, setResult)
+  );
   useEffect(() => {
-    graphObject.setUpNodes(choices);
-    graphObject.gameSetup();
+    graphObject.current.setUpNodes(choices);
+    graphObject.current.gameSetup();
     setIsLoading(false);
   }, []);
 
   const handleChoiceA = () => {
-    graphObject.gameContinue(choiceA, choiceB);
-    console.log(graphObject);
+    graphObject.current.gameContinue(choiceA, choiceB);
   };
 
   const handleChoiceB = () => {
-    graphObject.gameContinue(choiceB, choiceA);
-    console.log(graphObject);
+    graphObject.current.gameContinue(choiceB, choiceA);
   };
 
   const getURLfromName = (choiceName: string) => {
@@ -57,7 +57,7 @@ const GamePage = ({ choices }: { choices: ChoiceType[] }) => {
               </div>
             </>
           ) : (
-            <h1>Game Ended!</h1>
+            <ResultPage result={result} />
           )}
         </div>
       )}

@@ -1,5 +1,5 @@
 import UserChoiceNode from "./UserChoiceNode";
-import { ChoiceType } from "../types";
+import { ChoiceType, ResultType } from "../types";
 
 export default class Graph {
   adjacencyList: Record<string, UserChoiceNode[]>;
@@ -11,11 +11,13 @@ export default class Graph {
   choiceBSetter: React.Dispatch<React.SetStateAction<string>>;
   isContinue: boolean;
   setIsContinue: React.Dispatch<React.SetStateAction<boolean>>;
+  setResult: React.Dispatch<React.SetStateAction<ResultType | []>>;
   constructor(
     choiceASetter: React.Dispatch<React.SetStateAction<string>>,
     choiceBSetter: React.Dispatch<React.SetStateAction<string>>,
     isContinue: boolean,
-    setIsContinue: React.Dispatch<React.SetStateAction<boolean>>
+    setIsContinue: React.Dispatch<React.SetStateAction<boolean>>,
+    setResult: React.Dispatch<React.SetStateAction<ResultType | []>>
   ) {
     this.adjacencyList = {};
     this.dataSet = [];
@@ -26,6 +28,7 @@ export default class Graph {
     this.choiceBSetter = choiceBSetter;
     this.isContinue = isContinue;
     this.setIsContinue = setIsContinue;
+    this.setResult = setResult;
   }
 
   addNode(choiceName: string) {
@@ -47,13 +50,12 @@ export default class Graph {
   checkEdge(src: string, dst: string): boolean {
     const sourceList = this.adjacencyList[src];
     const dstNode = this.adjacencyList[dst][0];
-    return sourceList.reduce((acc, element) => {
-      if (element.choiceName === dstNode.choiceName) {
-        console.log(`${element.choiceName} --- ${dstNode.choiceName}`);
+    for (let index = 0; index < sourceList.length; index++) {
+      if (sourceList[index].choiceName === dstNode.choiceName) {
         return true;
       }
-      return false;
-    }, false);
+    }
+    return false;
   }
 
   gameSetup() {
@@ -82,8 +84,9 @@ export default class Graph {
         );
 
         if (this.dataSet.length <= 1) {
-          this.setIsContinue(false);
           this.gamePrintResult();
+          this.setResult(this.gameGetResult());
+          this.setIsContinue(false);
           return;
         }
 
@@ -155,8 +158,20 @@ export default class Graph {
     }
   }
 
+  gameGetResult() {
+    const result = [];
+    for (const key in this.adjacencyList) {
+      const relationShip = { key: key, wins: -1 };
+      this.adjacencyList[key].forEach(() => {
+        relationShip.wins++;
+      });
+      result.push(relationShip);
+    }
+    return result;
+  }
+
   dfs(src: string) {
-    let visited: Record<string, string> = {};
+    const visited: Record<string, string> = {};
     this.dfsHelper(src, src, visited);
   }
 

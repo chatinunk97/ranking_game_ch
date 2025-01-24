@@ -6,10 +6,10 @@ import GamePage from "./GamePage";
 function App() {
   const [isStart, setIsStart] = useState(false);
   const [choices, setChoices] = useState([
-    { choiceName: "pizza", url: "pizza JPG" },
-    { choiceName: "sushi", url: "sushi JPG" },
-    { choiceName: "pasta", url: "pasta JPG" },
-    { choiceName: "takoyaki", url: "takoyaki JPG" },
+    { choiceName: "a", url: "pizza JPG" },
+    { choiceName: "b", url: "sushi JPG" },
+    { choiceName: "c", url: "pasta JPG" },
+    { choiceName: "d", url: "takoyaki JPG" },
   ]);
 
   return (
