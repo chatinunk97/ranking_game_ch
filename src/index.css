@@ -87,3 +87,24 @@
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
+
+.custom-shape-divider-bottom-1737802743 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1737802743 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 16px;
+}
+
+.custom-shape-divider-bottom-1737802743 .shape-fill {
+    fill: #FFFFFF;
+}

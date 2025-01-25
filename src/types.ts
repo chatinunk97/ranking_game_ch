@@ -1,6 +1,6 @@
 export type ChoiceType = {
   choiceName: string;
-  url: string;
+  img: string;
 };
 
 export type ResultType = {
@@ -9,9 +9,10 @@ export type ResultType = {
 }[];
 
 export type ChoicePropsType = {
-  choice: string;
+  choice: ChoiceType;
+  handleUpdateImage: (choiceObject: ChoiceType) => void;
   i: number;
-  handleDelete: ( i: number) => void;
+  handleDelete: (i: number) => void;
 };
 
 export type ChoiceComparePropsType = {
