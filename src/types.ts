@@ -11,7 +11,7 @@ export type ResultType = {
 export type ChoicePropsType = {
   choice: string;
   i: number;
-  handleDelete: (i: number) => void;
+  handleDelete: ( i: number) => void;
 };
 
 export type ChoiceComparePropsType = {

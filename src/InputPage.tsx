@@ -14,6 +14,12 @@ const InputPage = ({
 }) => {
   const [userInput, setUserInput] = useState("");
 
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+
+  const handleClickOutside = () => {
+    setActiveCard(null); // Reset active card when clicking elsewhere
+  };
+
   const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setUserInput(e.currentTarget.value);
   };
@@ -27,10 +33,12 @@ const InputPage = ({
       }
     }
     if (userInput.trim() != "" && choices.length < 11) {
-      setChoices((c) => [...c, { choiceName: userInput, url: "" }]);
+      setChoices((c) => [{ choiceName: userInput, url: "" }, ...c]);
     }
   };
-  const handleDelete = (i: number) => {
+  const handleDelete = (
+    i: number
+  ) => {
     const updatedElement = choices.filter((_, index) => index !== i);
     setChoices(updatedElement);
   };
@@ -41,41 +49,44 @@ const InputPage = ({
   };
   return (
     <>
-      <div className="bg-gradient-to-b from-white via-purple-200 to-red-200 min-w-min max-w-sm m-auto min-h-screen flex flex-col gap-2">
-        <Button
-          className="w-full bg-yellow-300 text-black"
-          onClick={handleStartGame}
-        >
-          START
-        </Button>
+      <div className="bg-gradient-to-b from-white via-purple-100 to-red-100 min-w-min max-w-sm m-auto min-h-screen flex flex-col gap-4 items-center py-5 px-2">
         <form
+          className=" w-full"
           onSubmit={(e) => {
             handleSubmit(e);
           }}
         >
-          <div className="flex">
+          <div className="flex gap-2 ">
             <Input
+              className="bg-white"
               value={userInput}
               onChange={(e) => {
                 handleUserInput(e);
               }}
               placeholder="input your choice"
             ></Input>
-            <Button className="bg-green-500" type="submit">
-              Add
-            </Button>
+            <Button type="submit">Add</Button>
           </div>
         </form>
-        <ul key="choiceList" className="flex flex-col gap-4">
+        <ul
+          onClick={handleClickOutside}
+          key="choiceList"
+          className="flex flex-col gap-4 overflow-y-auto max-w-96 h-72 no-scrollbar px-2 py-4 w-full  rounded-xl shadow-xl bg-gradient-to-br from-white via-gray-50 to-gray-50"
+        >
           {choices.map((choice, i: number) => (
             <MyChoiceComponent
               choice={choice.choiceName}
               key={i}
               handleDelete={handleDelete}
+              activeCard={activeCard}
+              setActiveCard={setActiveCard}
               i={i}
             />
           ))}{" "}
         </ul>
+        <Button className="w-full" onClick={handleStartGame}>
+          START
+        </Button>
       </div>
     </>
   );
