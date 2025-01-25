@@ -10,11 +10,10 @@ function App() {
     { choiceName: "c", img: "pasta JPG" },
     { choiceName: "d", img: "takoyaki JPG" },
   ]);
-  console.log("xx");
   return (
     <div className="min-w-min max-w-sm m-auto min-h-screen bg-white">
       {isStart && choices.length > 1 ? (
-        <GamePage choices={choices} />
+        <GamePage choices={choices} setIsStart={setIsStart} />
       ) : (
         <InputPage
           setIsStart={setIsStart}

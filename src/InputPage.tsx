@@ -42,9 +42,9 @@ const InputPage = ({
     setChoices(choices.filter((_, index) => index !== i));
 
   return (
-    <div className="h-screen flex flex-col gap-2 justify-between overflow-hidden">
-      <div className="relative bg-gradient-to-b from-yellow-400 to-orange-300 w-full grid grid-cols-1 gap-2 py-5 px-2 rounded-b-[50px] h-5/6 overflow-hidden">
-        <form className="flex items-end w-full h-full" onSubmit={handleSubmit}>
+    <div className="h-screen pb-5">
+      <div className="flex flex-col gap-3 bg-gradient-to-b from-yellow-400 to-orange-300 w-full py-5 px-2 rounded-b-[50px] h-5/6 overflow-hidden">
+        <form className=" w-full px-2" onSubmit={handleSubmit}>
           <Input
             className="bg-white"
             value={userInput}
@@ -54,10 +54,10 @@ const InputPage = ({
         </form>
         <ul
           onClick={() => setActiveCard(null)}
-          className="grid grid-cols-2 gap-4 max-w-96 overflow-y-auto px-2 py-4 w-full rounded-3xl  no-scrollbar"
+          className="h-full grid grid-cols-2 gap-1 max-w-96 overflow-y-auto px-2 py-4 w-full rounded-3xl  no-scrollbar"
           style={{
             maskImage:
-              "linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%)",
+              "linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 15%)",
           }}
         >
           {choices.map((choice, i) => (

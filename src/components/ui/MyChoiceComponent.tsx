@@ -71,17 +71,17 @@ const MyChoiceComponent = ({
       onClick={handleCardClick}
     >
       <div className="h-full flex flex-1 transition-transform duration-300 ">
-        <Card className="w-full px-2 flex-col">
-          <CardHeader className=" flex-1">
-            <CardTitle>{choice.choiceName}</CardTitle>
+        <Card className="overflow-hidden flex w-full  h-full  flex-col">
+          <CardHeader className="">
+            <CardTitle className="text-xl ">{choice.choiceName}</CardTitle>
           </CardHeader>
           <CardContent
             onClick={triggerFileInput}
-            className="flex p-0 items-center w-20"
+            className=" flex flex-1 justify-center p-0 items-center w-full"
           >
             <Avatar>
               <AvatarImage src={choice.img} />
-              <AvatarFallback>{choice.choiceName.slice(0, 2)}</AvatarFallback>
+              <AvatarFallback className="text-2xl w-full h-full">{`${choice.choiceName.slice(0, 2).toUpperCase()}`}</AvatarFallback>
             </Avatar>
             <input
               ref={fileInputRef}
@@ -93,7 +93,6 @@ const MyChoiceComponent = ({
           </CardContent>
         </Card>
       </div>
-
       <button
         className={`flex justify-center items-center rounded-full text-sm text-white bg-red-300 transition-opacity duration-300 ${
           isCardClicked
