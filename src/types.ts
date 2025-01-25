@@ -18,5 +18,6 @@ export type ChoicePropsType = {
 export type ChoiceComparePropsType = {
   choice: string;
   img: string;
+  id: string;
   onClick: () => void;
 };

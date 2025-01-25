@@ -1,19 +1,36 @@
 import { ChoiceComparePropsType } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import { useState } from "react";
 
 const MyChoiceComparingComponent = ({
   choice,
   onClick,
   img,
+  id,
 }: ChoiceComparePropsType) => {
+  const [loadStatus, setLoadStatus] = useState("");
+  const handleLoadStatusUpdate = (status: string): void => {
+    setLoadStatus(status);
+  };
   return (
     <div className=" z-10 flex-1 justify-center flex">
-      <div className="relative w-full h-full cursor-pointer" onClick={onClick}>
-        <Avatar className=" flex justify-center items-center">
-          <AvatarImage src={img} className="w-32 h-32 rounded-full border-8" />
-          <AvatarFallback className="text-2xl w-32 h-32">{`${choice
-            .slice(0, 2)
-            .toUpperCase()}`}</AvatarFallback>
+      <div className="relative w-full h-full">
+        <Avatar className="flex justify-center items-center">
+          <AvatarImage
+            onClick={onClick}
+            src={img}
+            className={` ${
+              id === "choiceA" ? "animate-slide-in-a" : "animate-slide-in-b"
+            }  w-32 h-32 rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
+            onLoadingStatusChange={(status) => {
+              handleLoadStatusUpdate(status);
+            }}
+          />
+          <AvatarFallback
+            className={`${
+              loadStatus === "loading" ? "hidden " : ""
+            }"text-2xl w-32 h-32"`}
+          >{`${choice.slice(0, 2).toUpperCase()}`}</AvatarFallback>
         </Avatar>
       </div>
     </div>

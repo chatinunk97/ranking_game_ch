@@ -104,12 +104,14 @@ const GamePage = ({
               <div className=" gap-5 w-full h-full flex justify-between">
                 <MyChoiceComparingComponent
                   choice={choiceA}
+                  id="choiceA"
                   key="choiceA"
                   onClick={handleChoiceA}
                   img={getImgFromName(choiceA)}
                 ></MyChoiceComparingComponent>
                 <MyChoiceComparingComponent
                   choice={choiceB}
+                  id="choiceB"
                   key="choiceB"
                   onClick={handleChoiceB}
                   img={getImgFromName(choiceB)}
@@ -127,7 +129,7 @@ const GamePage = ({
           onClick={() => {
             setIsStart(false);
           }}
-          className="h-20 w-20 rounded-3xl bg-white text-black border border-b-ring border-r-ring "
+          className="h-20 w-20 rounded-3xl bg-white text-black border border-b-ring border-r-ring border-b-6 border-r-6 transition-all duration-500  hover:border-none hover:text-white  "
         >
           RESTART
         </Button>

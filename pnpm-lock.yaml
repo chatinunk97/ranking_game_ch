@@ -8,6 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/dynapuff':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource/nunito':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource/space-grotesk':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource/tilt-neon':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@radix-ui/react-avatar':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -35,6 +47,9 @@ importers:
       react-draggable:
         specifier: ^4.4.6
         version: 4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-loading-skeleton:
+        specifier: ^3.5.0
+        version: 3.5.0(react@18.3.1)
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
@@ -363,6 +378,18 @@ packages:
   '@eslint/plugin-kit@0.2.5':
     resolution: {integrity: sha512-lB05FkqEdUg2AA0xEbUz0SnkXT1LcCTa438W4IWTUh4hdOnVbQyOJ81OrDXsJk/LSiJHubgGEFoR5EHq1NsH1A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fontsource/dynapuff@5.1.1':
+    resolution: {integrity: sha512-gIyeR7FqGfc7D+qB7dqPQWORMS/5bT7BvV/IzHVfL2aJeYM1YoRmcvAshH/LXfftg3Vs2czuelOPrzST/xTH9w==}
+
+  '@fontsource/nunito@5.1.1':
+    resolution: {integrity: sha512-yv3SHxTwMcDqs8z73oyR3CzZyrfDOaJg6N2jr6CNAGuh0X+KA6KA/dz8jPwuKFeHzrSFcaQrj3CLAh6ySFvkdw==}
+
+  '@fontsource/space-grotesk@5.1.1':
+    resolution: {integrity: sha512-6uOS8WhMEl6lbykGvkSjxRLs/1lDvfSKyXAau7ONVPzUYBmB1E+JQ3C0du7NDp75xUZ+330xPc9/ep8uFgIXBg==}
+
+  '@fontsource/tilt-neon@5.1.1':
+    resolution: {integrity: sha512-ReTOTj5YK78sapLw/RGEFWcG/ucA+qUHQE4ySa13tZ3kcTWhm2Xb09L9AIqc6gWlREz+QRm8cH2U1fCZCG1UYw==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1509,6 +1536,11 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  react-loading-skeleton@3.5.0:
+    resolution: {integrity: sha512-gxxSyLbrEAdXTKgfbpBEFZCO/P153DnqSCQau2+o6lNy1jgMRr2MmRmOzMmyrwSaSYLRB8g7b0waYPmUjz7IhQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
@@ -1997,6 +2029,14 @@ snapshots:
     dependencies:
       '@eslint/core': 0.10.0
       levn: 0.4.1
+
+  '@fontsource/dynapuff@5.1.1': {}
+
+  '@fontsource/nunito@5.1.1': {}
+
+  '@fontsource/space-grotesk@5.1.1': {}
+
+  '@fontsource/tilt-neon@5.1.1': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -3056,6 +3096,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   react-is@16.13.1: {}
+
+  react-loading-skeleton@3.5.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-refresh@0.14.2: {}
 

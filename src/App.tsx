@@ -1,15 +1,11 @@
 import { useState } from "react";
 import InputPage from "./InputPage";
 import GamePage from "./GamePage";
+import { ChoiceType } from "./types";
 
 function App() {
   const [isStart, setIsStart] = useState(false);
-  const [choices, setChoices] = useState([
-    { choiceName: "a", img: "pizza JPG" },
-    { choiceName: "b", img: "sushi JPG" },
-    { choiceName: "c", img: "pasta JPG" },
-    { choiceName: "d", img: "takoyaki JPG" },
-  ]);
+  const [choices, setChoices] = useState<[] | ChoiceType[]>([]);
   return (
     <div className="min-w-min max-w-sm m-auto min-h-screen bg-white">
       {isStart && choices.length > 1 ? (
