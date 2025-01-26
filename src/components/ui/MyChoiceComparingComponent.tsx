@@ -7,6 +7,7 @@ const MyChoiceComparingComponent = ({
   onClick,
   img,
   id,
+  ranking,
 }: ChoiceComparePropsType) => {
   const [loadStatus, setLoadStatus] = useState("");
   const handleLoadStatusUpdate = (status: string): void => {
@@ -21,7 +22,9 @@ const MyChoiceComparingComponent = ({
             src={img}
             className={` ${
               id === "choiceA" ? "animate-slide-in-a" : "animate-slide-in-b"
-            }  w-32 h-32 rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
+            }  ${ranking == 1 ? "h-52 w-52" : ranking == 2 ? "h-40 w-40" : "h-32 w-32 "}
+            
+             rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
             onLoadingStatusChange={(status) => {
               handleLoadStatusUpdate(status);
             }}
@@ -30,7 +33,8 @@ const MyChoiceComparingComponent = ({
             onClick={onClick}
             className={`${loadStatus === "loading" ? "hidden " : ""} ${
               id === "choiceA" ? "animate-slide-in-a" : "animate-slide-in-b"
-            }  w-32 h-32 rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
+            } ${ranking == 1 ? "h-52 w-52" : ranking == 2 ? "h-40 w-40" : "h-32 w-32"}
+              rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
           >{`${choice.slice(0, 2).toUpperCase()}`}</AvatarFallback>
         </Avatar>
       </div>

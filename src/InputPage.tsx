@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { ChoiceType } from "./types";
-import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
 import MyChoiceComponent from "./components/ui/MyChoiceComponent";
 import { liellaChoice } from "./defaultChoices/defaultChoice";
-import liellaLogo from "./assets/liellaLogo.png";
 import { toast } from "react-toastify";
+import { Play, ListRestart, Sparkles } from "lucide-react";
 
 const InputPage = ({
   setIsStart,
@@ -57,7 +56,7 @@ const InputPage = ({
       <div className="relative flex flex-col items-center justify-between gap-3  w-full py-5  h-5/6 overflow-hidden">
         <form className=" w-full px-6" onSubmit={handleSubmit}>
           <Input
-            className="bg-white font-spaceGrotesk"
+            className="bg-white font-dynapuff"
             value={userInput}
             onChange={handleUserInput}
             placeholder="Add choices !"
@@ -65,10 +64,10 @@ const InputPage = ({
         </form>
         <ul
           onClick={() => setActiveCard(null)}
-          className=" h-full gap-2 grid grid-cols-2 max-w-96 overflow-y-auto p-6 pb-28 w-full rounded-3xl  no-scrollbar"
+          className=" h-full gap-1 grid grid-cols-2 max-w-96 overflow-y-auto p-6 pb-28 w-full rounded-3xl  no-scrollbar"
           style={{
             maskImage:
-              "linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%)",
+              "linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%)",
           }}
         >
           {choices.map((choice, i) => (
@@ -84,8 +83,8 @@ const InputPage = ({
           ))}
         </ul>
       </div>
-      <div className="sticky bottom-0 h-1/6 flex justify-center  gap-7 items-center bg-white">
-        <Button
+      <div className="sticky bottom-0 h-1/6 flex justify-between px-5  gap-7 items-center">
+        <div
           onClick={() => {
             toast("Template Liella! 1st gen Applied", {
               autoClose: 1500,
@@ -93,22 +92,22 @@ const InputPage = ({
             });
             setChoices(liellaChoice);
           }}
-          className="p-0 h-14 w-14 rounded-xl bg-gray-50 text-black border"
+          className="border-[#714D8B] border-2 p-2 rounded-full"
         >
-          <img className="w-full h-full rounded-xl" src={liellaLogo}></img>
-        </Button>
-        <Button
-          className="font-spaceGrotesk h-24 w-24 rounded-3xl bg-white text-black border-gray-200 border-4 border-b-6 border-r-6 transition-all duration-500  hover:border-none hover:text-white "
+          <Sparkles color="#714D8B " size={60} strokeWidth={1} />
+        </div>
+        <div
           onClick={handleStart}
+          className="border-[#714D8B] border-2 p-2 rounded-full"
         >
-          PLAY
-        </Button>
-        <Button
+          <Play color="#714D8B " size={60} strokeWidth={1} />
+        </div>
+        <div
           onClick={() => setChoices([])}
-          className="font-spaceGrotesk h-14 w-14 rounded-xl bg-gray-50 text-black border  hover:border-none hover:text-white "
+          className="border-[#714D8B] border-2 p-2 rounded-full"
         >
-          RESET
-        </Button>
+          <ListRestart color="#714D8B " size={60} strokeWidth={1} />
+        </div>
       </div>
     </div>
   );

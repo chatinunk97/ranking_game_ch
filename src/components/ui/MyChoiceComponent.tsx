@@ -60,13 +60,18 @@ const MyChoiceComponent = ({
   };
 
   return (
-    <li className="h-full flex items-center">
-      <div className=" overflow-hidden h-full flex flex-1 transition-transform duration-300 ">
-        <Card className="relative text-white rounded-3xl overflow-hidden flex w-full h-full flex-col">
+    <li className=" min-h-44 h-full flex items-center ">
+      <div className="overflow-hidden h-full flex flex-1 transition-transform duration-300 ">
+        <Card className="  relative text-white rounded-xl overflow-hidden flex w-full h-full flex-col">
           <div className="absolute right-3 top-2 z-10">
             <Popover>
               <PopoverTrigger>
-                <AlignJustify color="#ffffff" size={20} />
+                <div className="z-30">
+                  <AlignJustify color="black" size={20} />
+                </div>
+                <div className="z-20 top-0 absolute">
+                  <AlignJustify color="#ffffff" size={19} />
+                </div>
               </PopoverTrigger>
               <PopoverContent>
                 <div className="flex gap-1">
@@ -95,7 +100,7 @@ const MyChoiceComponent = ({
             </Popover>
           </div>
           <CardContent className="flex flex-1 justify-center p-0 items-center w-full">
-            <Avatar className="flex min-h-52 min-w-52 flex-1 items-center justify-center">
+            <Avatar className="flex flex-1 items-center justify-center">
               {loadStatus === "loading" && <div className="spinner" />}
               <AvatarImage
                 src={choice.img}
@@ -121,7 +126,7 @@ const MyChoiceComponent = ({
               onChange={handleFileSelect}
             />
           </CardContent>
-          <div className="absolute bottom-0 w-full text-white px-2 py-1 flex items-center justify-center">
+          <div className="font-dynapuff absolute bottom-0 w-full text-white px-2 py-1 flex items-center justify-center">
             <div className="flex absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/85"></div>
             <div className="relative z-10">
               {choice.choiceName.length < 25

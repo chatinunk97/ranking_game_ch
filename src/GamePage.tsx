@@ -3,7 +3,7 @@ import { ChoiceType, ResultType } from "./types";
 import Graph from "./GraphClass/Graph";
 import ResultPage from "./ResultPage";
 import MyChoiceComparingComponent from "./components/ui/MyChoiceComparingComponent";
-import { Button } from "./components/ui/button";
+import { ListRestart, Sparkles } from "lucide-react";
 
 const GamePage = ({
   choices,
@@ -27,12 +27,10 @@ const GamePage = ({
   }, []);
 
   const handleChoiceA = () => {
-    console.log("AAA");
     graphObject.current.gameContinue(choiceA, choiceB);
   };
 
   const handleChoiceB = () => {
-    console.log("BBB");
     graphObject.current.gameContinue(choiceB, choiceA);
   };
 
@@ -119,21 +117,25 @@ const GamePage = ({
               </div>
             </>
           ) : (
-            <ResultPage result={result} />
+            <ResultPage getImgFromName={getImgFromName} result={result} />
           )}
         </div>
       )}
-      <div className="sticky bottom-0 h-1/6 flex justify-center  gap-10 items-center">
-        <Button className="h-14 w-14 rounded-xl bg-white text-black border border-b-ring border-r-ring "></Button>
-        <Button
+      <div className="sticky bottom-0 h-1/6 flex justify-between px-5  gap-7 items-center">
+        <div className="border-[#714D8B] border-2 p-2 rounded-full">
+          <Sparkles color="#714D8B " size={60} strokeWidth={1} />
+        </div>
+        <div
           onClick={() => {
             setIsStart(false);
           }}
-          className="h-20 w-20 rounded-3xl bg-white text-black border border-b-ring border-r-ring border-b-6 border-r-6 transition-all duration-500  hover:border-none hover:text-white  "
+          className="border-[#714D8B] border-2 p-2 rounded-full"
         >
-          RESTART
-        </Button>
-        <Button className="h-14 w-14 rounded-xl bg-white text-black border border-b-ring border-r-ring "></Button>
+          <ListRestart color="#714D8B " size={60} strokeWidth={1} />
+        </div>
+        <div className="border-[#714D8B] border-2 p-2 rounded-full">
+          <ListRestart color="#714D8B " size={60} strokeWidth={1} />
+        </div>
       </div>
     </div>
   );
