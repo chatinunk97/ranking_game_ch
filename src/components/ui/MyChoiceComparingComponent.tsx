@@ -27,6 +27,7 @@ const MyChoiceComparingComponent = ({
             }}
           />
           <AvatarFallback
+            onClick={onClick}
             className={`${loadStatus === "loading" ? "hidden " : ""} ${
               id === "choiceA" ? "animate-slide-in-a" : "animate-slide-in-b"
             }  w-32 h-32 rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}

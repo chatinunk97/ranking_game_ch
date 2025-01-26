@@ -12,7 +12,7 @@ export const liellaChoice: ChoiceType[] = [
   },
   {
     choiceName: "Misaki Nako",
-    img: "https://static.wikia.nocookie.net/jpop/images/4/4f/Misaki_Nako_-_Chiisana_Tsubomi.jpg",
+    img: "https://di1w2o32ai2v6.cloudfront.net/images/detailed/8/MAINMISAKI_c_j7qt-06.jpg",
   },
   {
     choiceName: "Aoyama Nagisa",

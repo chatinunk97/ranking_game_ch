@@ -5,6 +5,7 @@ import { Input } from "./components/ui/input";
 import MyChoiceComponent from "./components/ui/MyChoiceComponent";
 import { liellaChoice } from "./defaultChoices/defaultChoice";
 import liellaLogo from "./assets/liellaLogo.png";
+import { toast } from "react-toastify";
 
 const InputPage = ({
   setIsStart,
@@ -21,8 +22,9 @@ const InputPage = ({
   const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) =>
     setUserInput(e.currentTarget.value);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!userInput.trim() || choices.length >= 11) return;
     if (choices.some((choice) => choice.choiceName === userInput)) {
       alert(`You've already entered "${userInput}"`);
@@ -63,7 +65,7 @@ const InputPage = ({
         </form>
         <ul
           onClick={() => setActiveCard(null)}
-          className=" h-full grid gap-3 grid-cols-2 max-w-96 overflow-y-auto p-6 pb-28 w-full rounded-3xl  no-scrollbar"
+          className=" h-full gap-2 grid grid-cols-2 max-w-96 overflow-y-auto p-6 pb-28 w-full rounded-3xl  no-scrollbar"
           style={{
             maskImage:
               "linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%)",
@@ -84,8 +86,14 @@ const InputPage = ({
       </div>
       <div className="sticky bottom-0 h-1/6 flex justify-center  gap-7 items-center bg-white">
         <Button
-          onClick={() => setChoices(liellaChoice)}
-          className="p-0 h-14 w-14 rounded-xl bg-gray-50 text-black border "
+          onClick={() => {
+            toast("Template Liella! 1st gen Applied", {
+              autoClose: 1500,
+              className: "w-1/2",
+            });
+            setChoices(liellaChoice);
+          }}
+          className="p-0 h-14 w-14 rounded-xl bg-gray-50 text-black border"
         >
           <img className="w-full h-full rounded-xl" src={liellaLogo}></img>
         </Button>
