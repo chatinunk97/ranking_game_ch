@@ -48,7 +48,7 @@ const GamePage = ({
       {isLoading ? (
         <></>
       ) : (
-        <div className="relative flex flex-col items-center justify-between gap-3  w-full py-5  h-5/6 overflow-hidden">
+        <div className="relative flex flex-col items-center justify-between gap-3  w-full pt-3  h-5/6 overflow-hidden">
           {isContinue ? (
             <>
               <svg
