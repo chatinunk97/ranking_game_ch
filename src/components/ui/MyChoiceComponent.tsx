@@ -89,7 +89,7 @@ const MyChoiceComponent = ({
             onClick={triggerFileInput}
             className="flex flex-1 justify-center p-0 items-center w-full"
           >
-            <Avatar className="flex items-center">
+            <Avatar className="flex items-center justify-center">
               <AvatarImage
                 src={choice.img}
                 onLoadingStatusChange={(status) => {
@@ -99,10 +99,10 @@ const MyChoiceComponent = ({
               <AvatarFallback
                 className={`${
                   loadStatus === "loading" ? "hidden " : " "
-                } p-0 text-2xl w-full h-1/3`}
+                } p-0 text-2xl w-full h-full rounded-none`}
               >{`${choice.choiceName
                 .slice(0, 2)
-                .toUpperCase()} sss`}</AvatarFallback>
+                .toUpperCase()}`}</AvatarFallback>
             </Avatar>
             <input
               ref={fileInputRef}

@@ -46,15 +46,15 @@ const GamePage = ({
   };
 
   return (
-    <div className=" h-screen pb-5">
+    <div className=" h-screen">
       {isLoading ? (
         <></>
       ) : (
-        <div className="relative flex items-center justify-between gap-3 bg-gradient-to-b from-purple-950 to-blue-950 w-full py-5 rounded-b-[50px] h-5/6 overflow-hidden">
+        <div className="relative flex flex-col items-center justify-between gap-3  w-full py-5  h-5/6 overflow-hidden">
           {isContinue ? (
             <>
               <svg
-                className="absolute -translate-x-24 scale-125"
+                className="absolute -translate-x-24 translate-y-20 scale-125"
                 viewBox="0 0 200 200"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -78,7 +78,7 @@ const GamePage = ({
                 />
               </svg>
               <svg
-                className="absolute translate-x-36 scale-125"
+                className="absolute translate-x-36 translate-y-20 scale-125"
                 viewBox="0 0 200 200"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -123,7 +123,7 @@ const GamePage = ({
           )}
         </div>
       )}
-      <div className=" h-1/5 flex justify-center  gap-10 items-center">
+      <div className="sticky bottom-0 h-1/6 flex justify-center  gap-10 items-center">
         <Button className="h-14 w-14 rounded-xl bg-white text-black border border-b-ring border-r-ring "></Button>
         <Button
           onClick={() => {

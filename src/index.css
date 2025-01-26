@@ -19,6 +19,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: -webkit-fill-available;
+}
+body {
+  height: -webkit-fill-available;
 }
 @layer base {
   :root {
