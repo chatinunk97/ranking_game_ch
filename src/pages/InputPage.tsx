@@ -22,7 +22,7 @@ const InputPage = ({
   };
 
   return (
-    <div className="relative h-screen flex flex-col">
+    <div className="relative h-full flex flex-col">
       <div className="flex flex-col items-center justify-between gap-3 w-full py-5 flex-grow overflow-hidden">
         <AddChoiceForm choices={choices} setChoices={setChoices} />
         <ChoiceListComponent choices={choices} setChoices={setChoices} />
