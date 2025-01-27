@@ -4,6 +4,7 @@ export default {
   content: ["./src/index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
+      screens: { xs: "24rem" },
       height: {
         screen: ["100dvh", "100vh"], // Fallback to 100vh
       },

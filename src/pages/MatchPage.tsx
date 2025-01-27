@@ -39,9 +39,9 @@ const MatchPage = ({
       {isLoading ? (
         <></>
       ) : (
-        <div className="flex flex-col items-center justify-between gap-3 w-full py-5 flex-grow overflow-hidden">
+        <div className="flex flex-col items-center justify-between gap-3 py-5 flex-grow overflow-hidden">
           {isContinue ? (
-            <div className="flex justify-center items-center w-full h-full">
+            <div className="flex justify-center items-center w-full h-screen overflow-hidden">
               <BlobBackground />
               <MatchChoiceDisplayer
                 graphObject={graphObject.current}
