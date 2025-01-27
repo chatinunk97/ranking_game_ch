@@ -1,3 +1,11 @@
+import Graph from "@/GraphClass/Graph";
+import { Dispatch, SetStateAction } from "react";
+
+export type ChoicesContextType = {
+  choices: ChoiceType[];
+  setChoices: Dispatch<SetStateAction<ChoiceType[]>>;
+};
+
 export type ChoiceType = {
   choiceName: string;
   img: string;
@@ -11,7 +19,7 @@ export type ResultType = {
 export type ChoicePropsType = {
   choice: ChoiceType;
   handleUpdateImage: (choiceObject: ChoiceType) => void;
-  i: number;
+  index: number;
   handleDelete: (i: number) => void;
 };
 
@@ -21,4 +29,11 @@ export type ChoiceComparePropsType = {
   id?: string;
   ranking?: number;
   onClick?: () => void;
+};
+
+export type MatchDisplayerPropsType = {
+  graphObject: Graph;
+  choiceA: string;
+  choiceB: string;
+  getImgFromName: (choiceName: string) => string;
 };

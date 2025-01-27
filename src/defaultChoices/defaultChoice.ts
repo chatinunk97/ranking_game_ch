@@ -19,3 +19,54 @@ export const liellaChoice: ChoiceType[] = [
     img: "https://aoyamanagisa.jp/assets/img/top/aoyamanagisa_top.jpg?1733482220",
   },
 ];
+
+export const stardewChoice: ChoiceType[] =  [
+  {
+    choiceName: "Shane",
+    img: "https://stardewvalleywiki.com/mediawiki/images/8/8b/Shane.png",
+  },
+  {
+    choiceName: "Emily",
+    img: "https://stardewvalleywiki.com/mediawiki/images/2/28/Emily.png",
+  },
+  {
+    choiceName: "Alex",
+    img: "https://stardewvalleywiki.com/mediawiki/images/0/04/Alex.png",
+  },
+  {
+    choiceName: "Haley",
+    img: "https://stardewvalleywiki.com/mediawiki/images/1/1b/Haley.png",
+  },
+  {
+    choiceName: "Maru",
+    img: "https://stardewvalleywiki.com/mediawiki/images/f/f8/Maru.png",
+  },
+  {
+    choiceName: "Elliott",
+    img: "https://stardewvalleywiki.com/mediawiki/images/b/bd/Elliott.png",
+  },
+  {
+    choiceName: "Harvey",
+    img: "https://stardewvalleywiki.com/mediawiki/images/9/95/Harvey.png",
+  },
+  {
+    choiceName: "Sam",
+    img: "https://stardewvalleywiki.com/mediawiki/images/9/94/Sam.png",
+  },
+  {
+    choiceName: "Sebastian",
+    img: "https://stardewvalleywiki.com/mediawiki/images/a/a8/Sebastian.png",
+  },
+  {
+    choiceName: "Abigail",
+    img: "https://stardewvalleywiki.com/mediawiki/images/8/88/Abigail.png",
+  },
+  {
+    choiceName: "Leah",
+    img: "https://stardewvalleywiki.com/mediawiki/images/e/e6/Leah.png",
+  },
+  {
+    choiceName: "Penny",
+    img: "https://stardewvalleywiki.com/mediawiki/images/a/ab/Penny.png",
+  },
+];

@@ -2,31 +2,19 @@ import { ChoicePropsType } from "@/lib/types";
 import { Card, CardContent } from "../card";
 import { useState, useRef } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
-import { AlignJustify, CircleX, ImagePlus } from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  PopoverPrimitive,
-} from "@/components/ui/popover";
+import PopoverSubmenu from "./PopoverSubmenu";
 
-const MyChoiceComponent = ({
+const ChoiceComponent = ({
   choice,
   handleUpdateImage,
-  i,
+  index,
   handleDelete,
-}: ChoicePropsType & {
-  activeCard: number | null;
-  setActiveCard: (cardIndex: number | null) => void;
-}) => {
+}: ChoicePropsType) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [loadStatus, setLoadStatus] = useState("");
 
   const triggerFileInput = () => {
     fileInputRef.current?.click(); // Trigger the hidden file input on button click
-  };
-  const handleDeleteClick = () => {
-    handleDelete(i);
   };
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -45,7 +33,6 @@ const MyChoiceComponent = ({
             ...choice,
             img: reader.result as string, // Base64 string of the image
           };
-          console.log("Updated choice with image:", updatedChoice);
           // Optionally, update the parent state here if needed
           handleUpdateImage(updatedChoice);
         }
@@ -55,49 +42,19 @@ const MyChoiceComponent = ({
   };
 
   const handleLoadStatusUpdate = (status: string): void => {
-    console.log(status);
     setLoadStatus(status);
   };
 
   return (
-    <li className=" min-h-44 h-full flex items-center ">
+    <li className=" min-h-44 h-full flex items-cente p-1 bg-gradient-to-b from-yellow-100 via-blue-100 to-blue-200 rounded-2xl">
       <div className="overflow-hidden h-full flex flex-1 transition-transform duration-300 ">
-        <Card className="  relative text-white rounded-xl overflow-hidden flex w-full h-full flex-col">
+        <Card className="relative text-white rounded-xl overflow-hidden border-none flex w-full h-full flex-col">
           <div className="absolute right-3 top-2 z-10">
-            <Popover>
-              <PopoverTrigger>
-                <div className="z-30">
-                  <AlignJustify color="black" size={20} />
-                </div>
-                <div className="z-20 top-0 absolute">
-                  <AlignJustify color="#ffffff" size={19} />
-                </div>
-              </PopoverTrigger>
-              <PopoverContent>
-                <div className="flex gap-1">
-                  <PopoverPrimitive.Close>
-                    <div className="pt-3 pl-px-5 ">
-                      <div
-                        onClick={triggerFileInput}
-                        className="p-2 bg-white rounded-full"
-                      >
-                        <ImagePlus color="#17B169" size={30} />
-                      </div>
-                    </div>
-                  </PopoverPrimitive.Close>
-                  <PopoverPrimitive.Close>
-                    <div className="pt-6 ">
-                      <div
-                        onClick={handleDeleteClick}
-                        className="p-2 bg-white rounded-full"
-                      >
-                        <CircleX color="#bc4141" size={30} />
-                      </div>
-                    </div>
-                  </PopoverPrimitive.Close>
-                </div>
-              </PopoverContent>
-            </Popover>
+            <PopoverSubmenu
+              handleDelete={handleDelete}
+              triggerFileInput={triggerFileInput}
+              index={index}
+            />
           </div>
           <CardContent className="flex flex-1 justify-center p-0 items-center w-full">
             <Avatar className="flex flex-1 items-center justify-center">
@@ -127,7 +84,7 @@ const MyChoiceComponent = ({
             />
           </CardContent>
           <div className="font-dynapuff absolute bottom-0 w-full text-white px-2 py-1 flex items-center justify-center">
-            <div className="flex absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/85"></div>
+            <div className="flex absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50"></div>
             <div className="relative z-10">
               {choice.choiceName.length < 25
                 ? choice.choiceName
@@ -140,4 +97,4 @@ const MyChoiceComponent = ({
   );
 };
 
-export default MyChoiceComponent;
+export default ChoiceComponent;
