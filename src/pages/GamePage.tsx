@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { ChoiceType, ResultType } from "./types";
-import Graph from "./GraphClass/Graph";
+import { ChoiceType, ResultType } from "../lib/types";
+import Graph from "../GraphClass/Graph";
 import ResultPage from "./ResultPage";
-import MyChoiceComparingComponent from "./components/ui/MyChoiceComparingComponent";
+import MatchChoiceComponent from "../components/ui/mycomponent/MatchChoiceComponent";
 import { ListRestart, Sparkles } from "lucide-react";
 
 const GamePage = ({
@@ -100,20 +100,20 @@ const GamePage = ({
                 />
               </svg>
               <div className=" gap-5 w-full h-full flex justify-between">
-                <MyChoiceComparingComponent
+                <MatchChoiceComponent
                   choice={choiceA}
                   id="choiceA"
                   key="choiceA"
                   onClick={handleChoiceA}
                   img={getImgFromName(choiceA)}
-                ></MyChoiceComparingComponent>
-                <MyChoiceComparingComponent
+                ></MatchChoiceComponent>
+                <MatchChoiceComponent
                   choice={choiceB}
                   id="choiceB"
                   key="choiceB"
                   onClick={handleChoiceB}
                   img={getImgFromName(choiceB)}
-                ></MyChoiceComparingComponent>
+                ></MatchChoiceComponent>
               </div>
             </>
           ) : (

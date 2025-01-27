@@ -1,8 +1,8 @@
-import MyChoiceComparingComponent from "./components/ui/MyChoiceComparingComponent";
-import gold from "./assets/gold.svg";
-import silver from "./assets/silver.svg";
-import bronze from "./assets/bronze.svg";
-import { ResultType } from "./types";
+import MyChoiceComparingComponent from "../components/ui/mycomponent/MatchChoiceComponent";
+import gold from "../assets/gold.svg";
+import silver from "../assets/silver.svg";
+import bronze from "../assets/bronze.svg";
+import { ResultType } from "../lib/types";
 import JSConfetti from "js-confetti";
 const ResultPage = ({
   result,
@@ -12,11 +12,11 @@ const ResultPage = ({
   getImgFromName: (choiceName: string) => string;
 }) => {
   result.sort((a, b) => b.wins - a.wins);
-  const jsConfetti = new JSConfetti()
- jsConfetti.addConfetti({
-   emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
-})
-  
+  const jsConfetti = new JSConfetti();
+  jsConfetti.addConfetti({
+    emojis: ["🌈", "⚡️", "💥", "✨", "💫", "🌸"],
+  });
+
   return (
     <div className="w-full h-full gap-2  overflow-scroll no-scrollbar items-center flex flex-col font-dynapuff text-white">
       <div className="grid grid-cols-2 w-full">
@@ -45,21 +45,25 @@ const ResultPage = ({
             {/* {result[1].wins} */} #2
           </div>
         </div>
-        <div className="pt-5 relative flex flex-col justify-center items-center ">
-          {" "}
-          <div>
-            <MyChoiceComparingComponent
-              choice={result[2].key}
-              img={getImgFromName(result[2].key)}
-              ranking={3}
-            ></MyChoiceComparingComponent>{" "}
+        {result.length > 2 ? (
+          <div className="pt-5 relative flex flex-col justify-center items-center ">
+            {" "}
+            <div>
+              <MyChoiceComparingComponent
+                choice={result[2].key}
+                img={getImgFromName(result[2].key)}
+                ranking={3}
+              ></MyChoiceComparingComponent>{" "}
+            </div>
+            <img src={bronze} className="w-8"></img>
+            <div>{result[2].key}</div>
+            <div className="flex justify-center rounded-full px-2 py-1 w-24 bg-gradient-to-br from-purple-400  via-amber-950 to-purple-900">
+              {/* {result[1].wins} */} #3
+            </div>
           </div>
-          <img src={bronze} className="w-8"></img>
-          <div>{result[2].key}</div>
-          <div className="flex justify-center rounded-full px-2 py-1 w-24 bg-gradient-to-br from-purple-400  via-amber-950 to-purple-900">
-            {/* {result[1].wins} */} #3
-          </div>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
       {/* 
       <ul className="bg-red-500 w-full">

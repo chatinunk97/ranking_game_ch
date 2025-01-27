@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { ChoiceType } from "./types";
-import { Input } from "./components/ui/input";
-import MyChoiceComponent from "./components/ui/MyChoiceComponent";
-import { liellaChoice } from "./defaultChoices/defaultChoice";
+import { ChoiceType } from "../lib/types";
+import { Input } from "../components/ui/input";
+import MyChoiceComponent from "../components/ui/mycomponent/MyChoiceComponent";
+import { liellaChoice } from "../defaultChoices/defaultChoice";
 import { toast } from "react-toastify";
 import { Play, ListRestart, Sparkles } from "lucide-react";
 

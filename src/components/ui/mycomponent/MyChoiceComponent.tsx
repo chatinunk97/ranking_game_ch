@@ -1,7 +1,7 @@
-import { ChoicePropsType } from "@/types";
-import { Card, CardContent } from "./card";
+import { ChoicePropsType } from "@/lib/types";
+import { Card, CardContent } from "../card";
 import { useState, useRef } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
 import { AlignJustify, CircleX, ImagePlus } from "lucide-react";
 import {
   Popover,

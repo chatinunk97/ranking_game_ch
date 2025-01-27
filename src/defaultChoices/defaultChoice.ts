@@ -1,4 +1,4 @@
-import { ChoiceType } from "@/types";
+import { ChoiceType } from "@/lib/types";
 
 export const liellaChoice: ChoiceType[] = [
   {

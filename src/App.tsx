@@ -1,7 +1,7 @@
 import { useState } from "react";
-import InputPage from "./InputPage";
-import GamePage from "./GamePage";
-import { ChoiceType } from "./types";
+import InputPage from "./pages/InputPage";
+import GamePage from "./pages/GamePage";
+import { ChoiceType } from "./lib/types";
 
 function App() {
   const [isStart, setIsStart] = useState(false);

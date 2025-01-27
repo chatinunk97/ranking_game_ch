@@ -1,8 +1,8 @@
-import { ChoiceComparePropsType } from "@/types";
-import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import { ChoiceComparePropsType } from "@/lib/types";
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
 import { useState } from "react";
 
-const MyChoiceComparingComponent = ({
+const MatchChoiceComponent = ({
   choice,
   onClick,
   img,
@@ -22,7 +22,13 @@ const MyChoiceComparingComponent = ({
             src={img}
             className={` ${
               id === "choiceA" ? "animate-slide-in-a" : "animate-slide-in-b"
-            }  ${ranking == 1 ? "h-44 w-44" : ranking == 2 ? "h-36 w-36" : "h-32 w-32 "}
+            }  ${
+              ranking == 1
+                ? "h-44 w-44"
+                : ranking == 2
+                ? "h-36 w-36"
+                : "h-32 w-32 "
+            }
             
              rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
             onLoadingStatusChange={(status) => {
@@ -33,7 +39,13 @@ const MyChoiceComparingComponent = ({
             onClick={onClick}
             className={`${loadStatus === "loading" ? "hidden " : ""} ${
               id === "choiceA" ? "animate-slide-in-a" : "animate-slide-in-b"
-            } ${ranking == 1 ? "h-52 w-52" : ranking == 2 ? "h-40 w-40" : "h-32 w-32"}
+            } ${
+              ranking == 1
+                ? "h-52 w-52"
+                : ranking == 2
+                ? "h-40 w-40"
+                : "h-32 w-32"
+            }
               rounded-full border-8 cursor-pointer hover:scale-125 transition-all duration-500`}
           >{`${choice.slice(0, 2).toUpperCase()}`}</AvatarFallback>
         </Avatar>
@@ -42,4 +54,4 @@ const MyChoiceComparingComponent = ({
   );
 };
 
-export default MyChoiceComparingComponent;
+export default MatchChoiceComponent;
