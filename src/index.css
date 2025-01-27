@@ -1,6 +1,14 @@
+@import "@fontsource/nunito";
+@import "@fontsource/dynapuff"; /* Add to your CSS file */
+@import "@fontsource/space-grotesk";
+@import "@fontsource/tilt-neon";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html,
+body {
+  overflow-x: hidden;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -14,6 +22,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: -webkit-fill-available;
+}
+body {
+  height: -webkit-fill-available;
 }
 @layer base {
   :root {
@@ -87,3 +99,69 @@
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
+
+.custom-shape-divider-bottom-1737802743 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1737802743 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 16px;
+}
+
+.custom-shape-divider-bottom-1737802743 .shape-fill {
+  fill: #ffffff;
+}
+@keyframes slide-in-a {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-b {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slide-in-a {
+  animation: slide-in-a 0.5s ease-out;
+}
+
+.animate-slide-in-b {
+  animation: slide-in-b 0.5s ease-out;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #4b9ce2;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+

@@ -1,5 +1,5 @@
 import UserChoiceNode from "./UserChoiceNode";
-import { ChoiceType, ResultType } from "../types";
+import { ChoiceType, ResultType } from "../lib/types";
 
 export default class Graph {
   adjacencyList: Record<string, UserChoiceNode[]>;

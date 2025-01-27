@@ -1,28 +1,17 @@
-import { useState } from "react";
-import InputPage from "./InputPage";
-import GamePage from "./GamePage";
+import GamePage from "./pages/GamePage";
+import ChoiceContextProvider from "./context/ChoiceContextProvider";
 
 function App() {
-  const [isStart, setIsStart] = useState(false);
-  const [choices, setChoices] = useState([
-    { choiceName: "a", url: "pizza JPG" },
-    { choiceName: "b", url: "sushi JPG" },
-    { choiceName: "c", url: "pasta JPG" },
-    { choiceName: "d", url: "takoyaki JPG" },
-  ]);
-
   return (
-    <>
-      {isStart && choices.length > 1 ? (
-        <GamePage choices={choices} />
-      ) : (
-        <InputPage
-          setIsStart={setIsStart}
-          choices={choices}
-          setChoices={setChoices}
-        />
-      )}
-    </>
+    <div className="flex w-full h-[100dvh] min-w-min bg-slate-800 overflow-hidden">
+      <div className="bg-slate-800  z-10 flex-1 hidden xs:block"></div>
+      <div className=" min-w-[24rem] max-w-sm m-auto h-full bg-gradient-to-b from-purple-300 via-blue-300 to-blue-400">
+        <ChoiceContextProvider>
+          <GamePage />
+        </ChoiceContextProvider>
+      </div>
+      <div className="bg-slate-800  z-10 flex-1 hidden xs:block"></div>
+    </div>
   );
 }
 
