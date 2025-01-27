@@ -48,13 +48,6 @@ This project is a React application built with TypeScript and Vite, designed to 
 - **`package.json`**: Project metadata and scripts.
 - **`vite.config.ts`**: Configuration file for Vite.
 
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
