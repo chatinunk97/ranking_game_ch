@@ -4,24 +4,32 @@ import silver from "../assets/silver.svg";
 import bronze from "../assets/bronze.svg";
 import { ResultType } from "../lib/types";
 import JSConfetti from "js-confetti";
+import { useEffect } from "react";
+import TrackerPopup from "@/components/ui/custom/TrackerPopup";
 const ResultPage = ({
   result,
   getImgFromName,
+  isTrackerOpen,
+  trackerData,
+  isRankingOpen,
 }: {
   result: ResultType;
   getImgFromName: (choiceName: string) => string;
+  isTrackerOpen: boolean;
+  trackerData: string[] | [];
+  isRankingOpen: boolean;
 }) => {
   result.sort((a, b) => b.wins - a.wins);
-  const jsConfetti = new JSConfetti();
-  jsConfetti.addConfetti({
-    emojis: ["🌈", "⚡️", "💥", "✨", "💫", "🌸"],
-  });
+  useEffect(() => {
+    const jsConfetti = new JSConfetti();
+    jsConfetti.addConfetti({
+      emojis: ["🌈", "⚡️", "💥", "✨", "💫", "🌸"],
+    });
+  }, []);
 
   return (
-    <div className="h-full w-full flex justify-center items-center">
+    <div className="relative h-full w-full flex justify-center items-center">
       <div className="grid grid-cols-2 w-full font-dynapuff text-white">
-
-
         <div className="text-xl flex-col flex w-full h-ull justify-center items-center col-span-2">
           <MyChoiceComparingComponent
             choice={result[0].key}
@@ -34,8 +42,6 @@ const ResultPage = ({
             {/* {result[0].wins} */}#1
           </div>
         </div>
-
-
         <div className="relative flex flex-col justify-center items-center ">
           {" "}
           <MyChoiceComparingComponent
@@ -49,8 +55,6 @@ const ResultPage = ({
             {/* {result[1].wins} */} #2
           </div>
         </div>
-
-        
         {result.length > 2 ? (
           <div className="relative flex flex-col justify-center items-center ">
             {" "}
@@ -70,21 +74,19 @@ const ResultPage = ({
         ) : (
           <></>
         )}
+
+        <TrackerPopup
+          isTrackerOpen={isTrackerOpen}
+          trackerData={trackerData}
+          type="graph"
+        />
+
+        <TrackerPopup
+          isTrackerOpen={isRankingOpen}
+          type="ranking"
+          result={result}
+        />
       </div>
-      {/* 
-      <ul className="bg-red-500 w-full">
-        {result.map((element, i) => {
-          if (i > 2) {
-            return (
-              <li key={i}>
-                <p className="font-spaceGrotesk">
-                  {element.key} {element.wins}
-                </p>
-              </li>
-            );
-          }
-        })}
-      </ul> */}
     </div>
   );
 };

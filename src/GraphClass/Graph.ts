@@ -149,13 +149,15 @@ export default class Graph {
   }
 
   gamePrintResult() {
+    const resultArry = [];
     for (const key in this.adjacencyList) {
       let relationShip = "";
       this.adjacencyList[key].forEach((e) => {
         relationShip += e.choiceName + " ---> ";
       });
-      console.log(relationShip);
+      resultArry.push(relationShip);
     }
+    return resultArry;
   }
 
   gameGetResult() {

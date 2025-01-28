@@ -6,6 +6,7 @@ import { useState } from "react";
 const GamePage = () => {
   const { choices } = useChoices();
   const [isStart, setIsStart] = useState(false);
+
   return (
     <div className="w-full h-full">
       {isStart && choices.length > 1 ? (
