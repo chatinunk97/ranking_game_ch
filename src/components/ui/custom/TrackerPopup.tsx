@@ -33,9 +33,9 @@ const TrackerPopup = ({
             </div>
           </div>
           <div className=" font-mono flex flex-col gap-2">
-            {trackerData?.map((e) => {
+            {trackerData?.map((e,i) => {
               return (
-                <div className="bg-white/50 p-2 rounded-md shadow-md text-black">
+                <div key={i} className="bg-white/50 p-2 rounded-md shadow-md text-black">
                   <div className="font-bold font-sans">
                     {e.split(">")[0].split(" -")[0]}
                   </div>
@@ -60,7 +60,7 @@ const TrackerPopup = ({
           <div className=" font-mono flex flex-col gap-2 p-2 px-3">
             {result?.map((e, i) => {
               return (
-                <div className="flex justify-between bg-white/50 p-2 rounded-md shadow-md text-black">
+                <div key={i} className="flex justify-between bg-white/50 p-2 rounded-md shadow-md text-black">
                   <div># {i + 1}</div>
                   <div className="font-bold">{e.key}</div>
                   <div>{e.wins} Points</div>
