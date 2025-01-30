@@ -129,17 +129,17 @@ export default class Graph {
     const starterName = this.dataSet[this.gamePointerStarter];
     const comparerName = this.dataSet[this.gamePointerComparer];
     if (this.checkEdge(starterName, comparerName)) {
-      console.log(
-        `###### Skip because ${starterName} have won ${comparerName} before`
-      );
+      // console.log(
+      //   `###### Skip because ${starterName} have won ${comparerName} before`
+      // );
       this.loserPool.push(comparerName);
       this.gamePointerComparer++;
       return true;
     }
     if (this.checkEdge(comparerName, starterName)) {
-      console.log(
-        `###### Skip because ${comparerName} have won ${starterName} before`
-      );
+      // console.log(
+      //   `###### Skip because ${comparerName} have won ${starterName} before`
+      // );
       this.loserPool.push(starterName);
       this.gamePointerStarter = this.gamePointerComparer;
       this.gamePointerComparer++;
