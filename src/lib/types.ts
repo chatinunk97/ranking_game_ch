@@ -37,3 +37,13 @@ export type MatchDisplayerPropsType = {
   choiceB: string;
   getImgFromName: (choiceName: string) => string;
 };
+
+export type MatchPageFooterPropsType = {
+  setIsRankingOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsTrackerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isContinue: boolean;
+  setIsContinue: React.Dispatch<React.SetStateAction<boolean>>;
+  setResult: React.Dispatch<React.SetStateAction<[] | ResultType>>;
+  setIsStart: React.Dispatch<React.SetStateAction<boolean>>;
+  graphObject: Graph;
+};
