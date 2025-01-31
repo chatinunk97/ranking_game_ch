@@ -41,7 +41,7 @@ const MatchPage = ({
   const getImgFromName = useMemo(() => {
     return (choiceName: string) => {
       return choices.reduce((acc, element) => {
-        if (element.choiceName === choiceName) {
+        if (element.img && element.choiceName === choiceName) {
           acc = element.img;
         }
         return acc;
