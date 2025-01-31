@@ -1,6 +1,6 @@
 import { ChoiceAction, ChoiceType, CounterActionType } from "@/lib/types";
 import ChoiceContext from "./ChoiceContext";
-import { ReactNode, useReducer } from "react";
+import { ReactNode, useMemo, useReducer } from "react";
 import defaultChoice from "@/defaultChoices/defaultChoice";
 const ChoiceContextProvider = ({ children }: { children: ReactNode }) => {
   const initialState: ChoiceType[] | [] = [];
@@ -28,9 +28,9 @@ const ChoiceContextProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const [choices, dispatch] = useReducer(choiceReducer, initialState);
-
+  const value = useMemo(() => ({ choices, dispatch }), [choices]);
   return (
-    <ChoiceContext.Provider value={{ choices, dispatch }}>
+    <ChoiceContext.Provider value={{ ...value }}>
       {children}
     </ChoiceContext.Provider>
   );
