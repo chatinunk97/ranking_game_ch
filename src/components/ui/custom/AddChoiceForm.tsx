@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Input } from "../input";
-import { ChoiceType } from "@/lib/types";
+import { ChoiceAction, ChoiceType, CounterActionType } from "@/lib/types";
 import { toast } from "react-toastify";
 
 const AddChoiceForm = ({
   choices,
-  setChoices,
+  dispatch,
 }: {
   choices: ChoiceType[];
-  setChoices: React.Dispatch<React.SetStateAction<ChoiceType[]>>;
+  dispatch: React.Dispatch<ChoiceAction>;
 }) => {
   const [userInput, setUserInput] = useState("");
 
@@ -27,7 +27,10 @@ const AddChoiceForm = ({
       });
       return;
     }
-    setChoices((prev) => [{ choiceName: userInput, img: "" }, ...prev]);
+    dispatch({
+      type: CounterActionType.ADD,
+      payload: { choiceName: userInput },
+    });
     setUserInput("");
   };
 

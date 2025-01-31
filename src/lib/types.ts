@@ -1,14 +1,14 @@
+import { TemplateChoices } from "@/defaultChoices/defaultChoice";
 import Graph from "@/GraphClass/Graph";
-import { Dispatch, SetStateAction } from "react";
 
 export type ChoicesContextType = {
   choices: ChoiceType[];
-  setChoices: Dispatch<SetStateAction<ChoiceType[]>>;
+  dispatch: React.Dispatch<ChoiceAction>;
 };
 
 export type ChoiceType = {
   choiceName: string;
-  img: string;
+  img?: string;
 };
 
 export type ResultType = {
@@ -47,3 +47,17 @@ export type MatchPageFooterPropsType = {
   setIsStart: React.Dispatch<React.SetStateAction<boolean>>;
   graphObject: Graph;
 };
+export type ChoiceAction =
+  | { type: "ADD"; payload: ChoiceType }
+  | { type: "REMOVE"; payload: number }
+  | { type: "UPDATE"; payload: ChoiceType }
+  | { type: "RESET" }
+  | { type: "APPLY_TEMPLATE"; payload: TemplateChoices };
+
+export enum CounterActionType {
+  ADD = "ADD",
+  REMOVE = "REMOVE",
+  UPDATE = "UPDATE",
+  RESET = "RESET",
+  APPLY_TEMPLATE = "APPLY_TEMPLATE",
+}
