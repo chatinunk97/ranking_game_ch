@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { Play, ListRestart, GalleryHorizontalEnd } from "lucide-react";
-import { liellaChoice, stardewChoice } from "@/defaultChoices/defaultChoice";
-import { ChoiceType } from "@/lib/types";
+import { TemplateChoices } from "@/defaultChoices/defaultChoice";
+import { ChoiceAction, CounterActionType } from "@/lib/types";
 import {
   PopoverContent,
   Popover,
@@ -9,10 +9,10 @@ import {
   PopoverPrimitive,
 } from "../popover";
 const InputPageFooter = ({
-  setChoices,
+  dispatch,
   handleStart,
 }: {
-  setChoices: React.Dispatch<React.SetStateAction<ChoiceType[]>>;
+  dispatch: React.Dispatch<ChoiceAction>;
   handleStart: () => void;
 }) => {
   return (
@@ -28,8 +28,13 @@ const InputPageFooter = ({
               <PopoverPrimitive.Close>
                 <div
                   onClick={() => {
-                    setChoices(liellaChoice);
-                    toast("Liella 1st gen template applied !", { autoClose: 1500 });
+                    dispatch({
+                      type: CounterActionType.APPLY_TEMPLATE,
+                      payload: TemplateChoices.liella,
+                    });
+                    toast("Liella 1st gen template applied !", {
+                      autoClose: 1500,
+                    });
                   }}
                   className="p-1 bg-black rounded-full bg-gradient-to-b from-purple-300 via-blue-300 to-blue-400"
                 >
@@ -41,8 +46,13 @@ const InputPageFooter = ({
               <PopoverPrimitive.Close>
                 <div
                   onClick={() => {
-                    setChoices(stardewChoice);
-                    toast("Stardew Valley template applied !", { autoClose: 1500 });
+                    dispatch({
+                      type: CounterActionType.APPLY_TEMPLATE,
+                      payload: TemplateChoices.liella,
+                    });
+                    toast("Stardew Valley template applied !", {
+                      autoClose: 1500,
+                    });
                   }}
                   className="p-1 bg-black rounded-full bg-gradient-to-b from-purple-300 via-blue-300 to-blue-400"
                 >
@@ -62,7 +72,7 @@ const InputPageFooter = ({
         <Play color="white " size={40} strokeWidth={1} />
       </div>
       <div
-        onClick={() => setChoices([])}
+        onClick={() => dispatch({ type: CounterActionType.RESET })}
         className="border-[white] border-2 p-2 rounded-full"
       >
         <ListRestart color="white " size={40} strokeWidth={1} />

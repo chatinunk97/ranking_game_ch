@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 const ChoiceContext = createContext<ChoicesContextType>({
   choices: [],
-  setChoices: () => {},
+  dispatch: () => {},
 });
 
 export default ChoiceContext;
