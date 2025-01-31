@@ -1,22 +1,19 @@
 import ChoiceComponent from "./ChoiceComponent";
-import { ChoiceType } from "@/lib/types";
+import { ChoiceAction, ChoiceType, CounterActionType } from "@/lib/types";
 
 const ChoiceListComponent = ({
   choices,
-  setChoices,
+  dispatch,
 }: {
   choices: ChoiceType[];
-  setChoices: React.Dispatch<React.SetStateAction<ChoiceType[]>>;
+  dispatch: React.Dispatch<ChoiceAction>;
 }) => {
   //Functions Updating the choice
   const handleDelete = (i: number) =>
-    setChoices(choices.filter((_, index) => index !== i));
+    dispatch({ type: CounterActionType.REMOVE, payload: i });
+
   const handleUpdateImage = (choiceObject: ChoiceType) => {
-    setChoices((prevChoices) =>
-      prevChoices.map((choice) =>
-        choice.choiceName === choiceObject.choiceName ? choiceObject : choice
-      )
-    );
+    dispatch({ type: CounterActionType.UPDATE, payload: choiceObject });
   };
   return (
     <ul

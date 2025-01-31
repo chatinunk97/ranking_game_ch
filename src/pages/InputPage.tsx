@@ -11,7 +11,7 @@ const InputPage = ({
 }: {
   setIsStart: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { choices, setChoices }: ChoicesContextType = useChoices();
+  const { choices, dispatch }: ChoicesContextType = useChoices();
 
   const handleStart = () => {
     if (choices.length < 2) {
@@ -24,12 +24,12 @@ const InputPage = ({
   return (
     <div className="relative h-full flex flex-col">
       <div className="flex flex-col items-center justify-between gap-3 w-full py-5 flex-grow overflow-hidden">
-        <AddChoiceForm choices={choices} setChoices={setChoices} />
-        <ChoiceListComponent choices={choices} setChoices={setChoices} />
+        <AddChoiceForm choices={choices} dispatch={dispatch} />
+        <ChoiceListComponent choices={choices} dispatch={dispatch} />
       </div>
       <InputPageFooter
         handleStart={handleStart}
-        setChoices={setChoices}
+        dispatch={dispatch}
       ></InputPageFooter>
     </div>
   );

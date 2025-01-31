@@ -1,6 +1,6 @@
 import { ChoiceType } from "@/lib/types";
 
-export const liellaChoice: ChoiceType[] = [
+const liella: ChoiceType[] = [
   {
     choiceName: "Date Sayuri",
     img: "https://lovelive-petitsoku.com/wp-content/uploads/2021/05/E0tWqlyUcAYQRlG.jpg",
@@ -20,7 +20,7 @@ export const liellaChoice: ChoiceType[] = [
   },
 ];
 
-export const stardewChoice: ChoiceType[] =  [
+const stardew: ChoiceType[] = [
   {
     choiceName: "Shane",
     img: "https://stardewvalleywiki.com/mediawiki/images/8/8b/Shane.png",
@@ -70,3 +70,15 @@ export const stardewChoice: ChoiceType[] =  [
     img: "https://stardewvalleywiki.com/mediawiki/images/a/ab/Penny.png",
   },
 ];
+
+const defaultChoice = {
+  liella: liella,
+  stardew: stardew,
+};
+
+export enum TemplateChoices {
+  "liella" = "liella",
+  "stardew" = "stardew",
+}
+
+export default defaultChoice;

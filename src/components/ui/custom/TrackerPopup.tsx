@@ -60,7 +60,10 @@ const TrackerPopup = ({
           <div className=" font-mono flex flex-col gap-2 p-2 px-3">
             {result?.map((e, i) => {
               return (
-                <div className="flex justify-between bg-white/50 p-2 rounded-md shadow-md text-black">
+                <div
+                  key={i}
+                  className="flex justify-between bg-white/50 p-2 rounded-md shadow-md text-black"
+                >
                   <div># {i + 1}</div>
                   <div className="font-bold">{e.key}</div>
                   <div>{e.wins} Points</div>
