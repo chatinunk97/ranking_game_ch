@@ -33,9 +33,12 @@ const TrackerPopup = ({
             </div>
           </div>
           <div className=" font-mono flex flex-col gap-2">
-            {trackerData?.map((e) => {
+            {trackerData?.map((e, i) => {
               return (
-                <div className="bg-white/50 p-2 rounded-md shadow-md text-black">
+                <div
+                  key={i}
+                  className="bg-white/50 p-2 rounded-md shadow-md text-black"
+                >
                   <div className="font-bold font-sans">
                     {e.split(">")[0].split(" -")[0]}
                   </div>

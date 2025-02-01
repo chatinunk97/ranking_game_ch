@@ -48,7 +48,7 @@ const InputPageFooter = ({
                   onClick={() => {
                     dispatch({
                       type: CounterActionType.APPLY_TEMPLATE,
-                      payload: TemplateChoices.liella,
+                      payload: TemplateChoices.stardew,
                     });
                     toast("Stardew Valley template applied !", {
                       autoClose: 1500,
