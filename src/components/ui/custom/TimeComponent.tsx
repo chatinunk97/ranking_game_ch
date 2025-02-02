@@ -1,10 +1,11 @@
 import useSwr from "swr";
+import axios from "axios";
 
 const TimeComponent = () => {
-  //Fetcher for SWR to use 
+  //Fetcher for SWR to use
   //Todo change it to Axios would be better
-  const fetcher = (url: string) => {
-    return fetch(url).then((response) => response.json());
+  const fetcher = async (url: string) => {
+    return (await axios.get(url)).data;
   };
 
   const { data, error, isLoading } = useSwr(
