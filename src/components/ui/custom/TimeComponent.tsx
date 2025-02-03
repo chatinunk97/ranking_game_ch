@@ -3,7 +3,7 @@ import axios from "axios";
 
 const TimeComponent = () => {
   const fetcher = async (url: string) => {
-    return await axios.get(url);
+    return (await axios.get(url)).data;
   };
 
   const { data, error, isLoading } = useSwr(
@@ -13,7 +13,7 @@ const TimeComponent = () => {
 
   if (error) return <>{error}</>;
   if (isLoading) return <>Is loading ...</>;
-  return <>{data?.data.time}</>;
+  return <>{data.time}</>;
 };
 
 export default TimeComponent;
