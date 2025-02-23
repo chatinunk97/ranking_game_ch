@@ -2,6 +2,7 @@ import GamePage from "./pages/GamePage";
 import ChoiceContextProvider from "./context/ChoiceContextProvider";
 
 function App() {
+
   return (
     <div className="flex w-full h-[100dvh] min-w-min bg-slate-800 overflow-hidden">
       <div className="bg-slate-800  z-10 flex-1 hidden xs:block"></div>

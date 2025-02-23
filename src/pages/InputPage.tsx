@@ -1,5 +1,4 @@
 import { ChoicesContextType } from "../lib/types";
-
 import useChoices from "@/hooks/global/useChoices";
 import ChoiceListComponent from "@/components/ui/custom/ChoiceListComponent";
 import InputPageFooter from "@/components/ui/custom/InputPageFooter";
