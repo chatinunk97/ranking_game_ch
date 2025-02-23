@@ -20,6 +20,29 @@ const liella: ChoiceType[] = [
   },
 ];
 
+const jband: ChoiceType[] = [
+  {
+    choiceName: "YOASOBI",
+    img: "https://i.scdn.co/image/ab6761610000e5ebbfdd8a29d0c6bc6950055234",
+  },
+  {
+    choiceName: "YORUSHIKA",
+    img: "https://upload.wikimedia.org/wikipedia/commons/2/27/Yorushika_Logo.jpg",
+  },
+  {
+    choiceName: "UVERworld",
+    img: "https://s3-ap-northeast-1.amazonaws.com/ticket-trade.emtg.jp/production/assets/img/artist/uverworld/pc-20240917170713.jpg",
+  },
+  {
+    choiceName: "Lust Queen",
+    img: "https://pbs.twimg.com/media/GNiCbN2bIAAYMwU?format=jpg&name=large",
+  },
+  {
+    choiceName: "SCANDAL",
+    img: "https://topmusic.jp/artists/2584/main/main.jpg",
+  },
+];
+
 const stardew: ChoiceType[] = [
   {
     choiceName: "Shane",
@@ -74,11 +97,13 @@ const stardew: ChoiceType[] = [
 const defaultChoice = {
   liella: liella,
   stardew: stardew,
+  jband: jband,
 };
 
 export enum TemplateChoices {
   "liella" = "liella",
   "stardew" = "stardew",
+  "jband" = "jband",
 }
 
 export default defaultChoice;
