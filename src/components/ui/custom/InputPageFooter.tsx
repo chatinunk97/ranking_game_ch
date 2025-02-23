@@ -30,6 +30,24 @@ const InputPageFooter = ({
                   onClick={() => {
                     dispatch({
                       type: CounterActionType.APPLY_TEMPLATE,
+                      payload: TemplateChoices.jband,
+                    });
+                    toast("Japanese Band template applied !", {
+                      autoClose: 1500,
+                    });
+                  }}
+                  className="p-1 bg-black rounded-full bg-gradient-to-b from-purple-300 via-blue-300 to-blue-400"
+                >
+                  <div className="px-1 overflow-hidden flex justify-center items-center bg-white rounded-full w-full text-center">
+                    J-Band
+                  </div>
+                </div>
+              </PopoverPrimitive.Close>
+              <PopoverPrimitive.Close>
+                <div
+                  onClick={() => {
+                    dispatch({
+                      type: CounterActionType.APPLY_TEMPLATE,
                       payload: TemplateChoices.liella,
                     });
                     toast("Liella 1st gen template applied !", {
